@@ -1,12 +1,19 @@
 hook.Add( "PopulateToolMenu", "CustomMenuSettings", function()
 	spawnmenu.AddToolMenuOption( "Options", "Stuff", "functional_rupees", "Functional Rupees", "", "", function( panel )
+		panel:Help( "These settings are all serversided\nand should be the same for all the players" )
+		
+		panel:Help( "" )
+		
+		panel:CheckBox( "Rupees give armor instead of health", "gmod_functional_rupees_armor" )
+		
+		panel:Help( "" )
+		
 		panel:CheckBox( "Spawn rupees on NPC death", "gmod_functional_rupees_spawn_npc" )
 		panel:CheckBox( "Spawn rupees on player death", "gmod_functional_rupees_spawn_player" )
 		
 		panel:Help( "" )
 		
-		panel:NumSlider( "Despawn time in secs", "gmod_functional_rupees_despawn", 0, 60, 0 )
-		panel:Help( "(set to 0 to never despawn)" )
+		panel:NumSlider( "Despawn time in secs\n(0 = never despawn)", "gmod_functional_rupees_despawn", 0, 60, 0 )
 		
 		panel:Help( "" )
 		

@@ -38,7 +38,12 @@ function ENT:Think()
 		d = math.Distance( p:GetPos().x, p:GetPos().y, self:GetPos().x, self:GetPos().y )
 		
 		if ( d <= p:BoundingRadius() and self:GetPos().z + 12 >= p:GetPos().z and self:GetPos().z <= p:OBBMaxs().z and p:Alive() ) then
-			p:SetHealth( p:Health() + 300 )
+			if ( GetConVar( "gmod_functional_rupees_armor" ):GetBool() ) then
+				p:SetArmor( p:Armor() + 300 )
+			else
+				p:SetHealth( p:Health() + 300 )
+			end
+			
 			self:EmitSound( "rupee3.wav", 150, 100, 1, CHAN_AUTO )
 			self:Remove()
 		end
