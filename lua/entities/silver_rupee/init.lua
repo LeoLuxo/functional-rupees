@@ -37,7 +37,7 @@ function ENT:Think()
 	for i, p in pairs( players ) do
 		d = math.Distance( p:GetPos().x, p:GetPos().y, self:GetPos().x, self:GetPos().y )
 		
-		if ( d <= p:BoundingRadius() and self:GetPos().z + 32 >= p:GetPos().z and self:GetPos().z - 32 <= p:OBBMaxs().z ) then
+		if ( d <= p:BoundingRadius() and self:GetPos().z + 12 >= p:GetPos().z and self:GetPos().z <= p:OBBMaxs().z and p:Alive() ) then
 			p:SetHealth( p:Health() + 100 )
 			self:EmitSound( "rupee3.wav", 150, 100, 1, CHAN_AUTO )
 			self:Remove()
