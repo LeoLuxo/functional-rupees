@@ -9,6 +9,7 @@ function ENT:Initialize()
 	self:SetMoveType( MOVETYPE_VPHYSICS )
 	self:SetSolid( SOLID_VPHYSICS )
 	self:SetUseType( SIMPLE_USE )
+	self:SetCollisionGroup( COLLISION_GROUP_WEAPON )
 end
 
 function ENT:SpawnFunction( ply, tr, ClassName )
@@ -30,10 +31,19 @@ function ENT:SpawnFunction( ply, tr, ClassName )
 
 end
 
-function ENT:Touch( entity ) 
-	if ( entity:IsPlayer() and entity:IsValid() ) then
-		entity:SetHealth( entity:Health() + 5 )
-		self:EmitSound( "rupee2.wav", 150, 100, 1, CHAN_AUTO )
-		self:Remove()
+function ENT:Think()
+	players = player.GetAll()
+	
+	for i, p in pairs( players ) do
+		d = math.Distance( p:GetPos().x, p:GetPos().y, self:GetPos().x, self:GetPos().y )
+		
+		if ( d <= p:BoundingRadius() and self:GetPos().z + 32 >= p:GetPos().z and self:GetPos().z - 32 <= p:OBBMaxs().z ) then
+			p:SetHealth( p:Health() + 5 )
+			self:EmitSound( "rupee2.wav", 150, 100, 1, CHAN_AUTO )
+			self:Remove()
+		end
 	end
+
+	self:NextThink( CurTime() )
+	return true
 end
