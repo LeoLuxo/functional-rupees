@@ -1,3 +1,7 @@
+[![Steam Subscriptions](https://img.shields.io/steam/subscriptions/1234633466?label=subscriptions&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=1234633466)
+[![Steam Downloads](https://img.shields.io/steam/downloads/1234633466?logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=1234633466)
+![Steam File Size](https://img.shields.io/steam/size/1234633466?color=informational)
+
 # Functional Rupees
 
 These are 5 fully functional and collectable rupees from The Legend of Zelda.
@@ -9,6 +13,6 @@ Rupees can also give armor instead of health.
 You can configure all these settings under the "Options" tab in the upper-right corner of the spawnmenu, under "Stuff", "Functional Rupees".
 
 They come with pick-up and drop sound.
-The rupees do not collide with players, are easy to collect, but are still useable as normal physics-entities.
+The rupees do not collide with players, but are still useable as normal physics-entities.
 
 You can visit this addon's [workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=1234633466) to install it.
