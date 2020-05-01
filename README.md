@@ -1,6 +1,7 @@
 [![Steam Subscriptions](https://img.shields.io/steam/subscriptions/1234633466?label=subscriptions&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=1234633466)
 [![Steam Downloads](https://img.shields.io/steam/downloads/1234633466?logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=1234633466)
-![Steam File Size](https://img.shields.io/steam/size/1234633466?color=informational)
+![Steam File Size](https://img.shields.io/steam/size/1234633466?color=blueviolet)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/leoluxo/functional-rupees?include_prereleases)
 
 # Functional Rupees
 
