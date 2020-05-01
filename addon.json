@@ -1,0 +1,13 @@
+{
+	"title"		:	"Functional Rupees",
+	"type"		:	"Model",
+	"tags"		:	[ "fun", "cartoon" ],
+	"ignore"	:
+	[
+		"*.md",
+		"*.exe",
+		"LICENSE",
+		".git/*",
+		".gitignore"
+	]
+}
