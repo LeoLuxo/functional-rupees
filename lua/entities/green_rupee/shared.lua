@@ -4,10 +4,10 @@ ENT.Base = "base_gmodentity"
 ENT.Author = "LeoLuxo"
 ENT.Contact = ""
 
-ENT.PrintName = "1: Green Rupee"
+ENT.PrintName = "Green Rupee (1)"
 ENT.Category = "Rupees"
 ENT.Purpose = "Gives you 1 health"
-ENT.Instructions = "Press 'e' on it"
+ENT.Instructions = ""
 
 ENT.Spawnable = true
 ENT.AdminSpawnable = false
