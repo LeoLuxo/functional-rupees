@@ -10,6 +10,7 @@ function ENT:Initialize()
 	self:SetSolid( SOLID_VPHYSICS )
 	self:SetUseType( SIMPLE_USE )
 	self:SetCollisionGroup( COLLISION_GROUP_WEAPON )
+	self:SetTrigger( true )
 end
 
 function ENT:SpawnFunction( ply, tr, ClassName )
@@ -31,24 +32,17 @@ function ENT:SpawnFunction( ply, tr, ClassName )
 
 end
 
-function ENT:Think()
-	players = player.GetAll()
+function ENT:Touch( ent )
 	
-	for i, p in pairs( players ) do
-		d = math.Distance( p:GetPos().x, p:GetPos().y, self:GetPos().x, self:GetPos().y )
-		
-		if ( d <= p:BoundingRadius() and self:GetPos().z + 12 >= p:GetPos().z and self:GetPos().z <= p:OBBMaxs().z and p:Alive() ) then
-			if ( GetConVar( "gmod_functional_rupees_armor" ):GetBool() ) then
-				p:SetArmor( p:Armor() + 100 )
-			else
-				p:SetHealth( p:Health() + 100 )
-			end
-			
-			self:EmitSound( "rupee3.wav", 150, 100, 1, CHAN_AUTO )
-			self:Remove()
+	if ( ent:IsPlayer() and ent:IsValid() ) then
+		if ( GetConVar( "gmod_functional_rupees_armor" ):GetBool() ) then
+			ent:SetArmor( ent:Armor() + 100 )
+		else
+			ent:SetHealth( ent:Health() + 100 )
 		end
+		
+		self:EmitSound( "rupee3.wav", 150, 100, 1, CHAN_AUTO )
+		self:Remove()
 	end
-
-	self:NextThink( CurTime() )
-	return true
+	
 end
