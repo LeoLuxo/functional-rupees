@@ -1,14 +1,15 @@
-local function NPCDeath( npc, attacker, inflictor )
-	if ( GetConVar( "gmod_functional_rupees_spawn_npc" ):GetBool() ) then
-		SpawnRupees( npc:GetPos(), npc:GetMaxHealth()  )
-	end
-end
 
-local function PlayerDeath( player, attacker, inflictor)
-	if ( GetConVar( "gmod_functional_rupees_spawn_player" ):GetBool() ) then
-		SpawnRupees( player:GetPos(), player:GetMaxHealth() )
+hook.Add( "OnNPCKilled", "FunctionalRupeeNPCDeath", function( victim, attacker, inflictor )
+	if ( GetConVar( "gmod_functional_rupees_spawn_npc" ):GetBool() ) then
+		SpawnRupees( victim:GetPos(), victim:GetMaxHealth()  )
 	end
-end
+end )
+
+hook.Add( "PlayerDeath", "FunctionalRupeePlayerDeath", function( victim, inflictor, attacker )
+	if ( GetConVar( "gmod_functional_rupees_spawn_player" ):GetBool() ) then
+		SpawnRupees( victim:GetPos(), victim:GetMaxHealth() )
+	end
+end )
 
 function SpawnRupees( pos, value )
 	pos.z = pos.z + 20
@@ -101,6 +102,3 @@ function FadeOutRupee( rupee, retry, speed )
 		end
 	end )
 end
-
-hook.Add( "OnNPCKilled", "functional_rupees_npc", NPCDeath )
-hook.Add( "PlayerDeath", "functional_rupees_player", PlayerDeath )
