@@ -1,11 +1,11 @@
 
-hook.Add( "OnNPCKilled", "FunctionalRupeeNPCDeath", function( victim, attacker, inflictor )
+hook.Add( "OnNPCKilled", "FunctionalRupeesNPCDeath", function( victim, attacker, inflictor )
 	if ( GetConVar( "gmod_functional_rupees_spawn_npc" ):GetBool() ) then
 		SpawnRupees( victim:GetPos(), victim:GetMaxHealth()  )
 	end
 end )
 
-hook.Add( "PlayerDeath", "FunctionalRupeePlayerDeath", function( victim, inflictor, attacker )
+hook.Add( "PlayerDeath", "FunctionalRupeesPlayerDeath", function( victim, inflictor, attacker )
 	if ( GetConVar( "gmod_functional_rupees_spawn_player" ):GetBool() ) then
 		SpawnRupees( victim:GetPos(), victim:GetMaxHealth() )
 	end

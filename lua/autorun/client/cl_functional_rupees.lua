@@ -1,4 +1,4 @@
-hook.Add( "PopulateToolMenu", "CustomMenuSettings", function()
+hook.Add( "PopulateToolMenu", "FunctionalRupeesCustomMenuSettings", function()
 	spawnmenu.AddToolMenuOption( "Options", "Stuff", "functional_rupees", "Functional Rupees", "", "", function( panel )
 		panel:Help( "These settings are all serversided\nand should be the same for all the players" )
 		
