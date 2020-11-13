@@ -1,9 +1,9 @@
 ENT.Type			= "anim"
 ENT.Base			= "base_ent_rupee"
 
-ENT.PrintName		= "Gold Rupee (300)"
+ENT.PrintName		= "Gold Rupee"
 ENT.Category		= "Rupees"
-ENT.Purpose			= "Gives you 300 health"
+ENT.Purpose			= "Gives you 300 health or armor"
 ENT.Instructions	= ""
 
 ENT.Author			= "LeoLuxo"
