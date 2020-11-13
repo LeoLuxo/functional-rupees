@@ -55,10 +55,21 @@ if SERVER then
 	function ENT:Touch( ent )
 		
 		if ( ent:IsPlayer() and ent:IsValid() ) then
+			
+			cap = GetConVar( "gmod_functional_rupees_cap" ):GetInt()
+			
 			if ( GetConVar( "gmod_functional_rupees_armor" ):GetBool() ) then
-				ent:SetArmor( ent:Armor() + self.RupeeValue )
+				if ( cap == 0 ) then
+					ent:SetArmor( ent:Armor() + self.RupeeValue )
+				else
+					ent:SetArmor( math.min( ent:Armor() + self.RupeeValue, cap ) )
+				end
 			else
-				ent:SetHealth( ent:Health() + self.RupeeValue )
+				if ( cap == 0 ) then
+					ent:SetHealth( ent:Health() + self.RupeeValue )
+				else
+					ent:SetHealth( math.min( ent:Health() + self.RupeeValue, cap ) )
+				end
 			end
 			
 			self:EmitSound( self.RupeeSound, 150, 100, 1, CHAN_AUTO )
