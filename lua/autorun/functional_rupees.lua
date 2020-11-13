@@ -5,9 +5,14 @@ hook.Add( "OnNPCKilled", "FunctionalRupeesNPCDeath", function( victim, attacker,
 	end
 end )
 
-hook.Add( "PlayerDeath", "FunctionalRupeesPlayerDeath", function( victim, inflictor, attacker )
+hook.Add( "DoPlayerDeath", "FunctionalRupeesPlayerDeath", function( ply, attacker, dmg )
 	if ( GetConVar( "gmod_functional_rupees_spawn_player" ):GetBool() ) then
-		SpawnRupees( victim:GetPos(), victim:GetMaxHealth() )
+		print( ply:Health() )
+		if ( GetConVar( "gmod_functional_rupees_cap" ):GetInt() == 0 ) then
+			SpawnRupees( ply:GetPos(), ply:GetMaxHealth() )
+		else
+			SpawnRupees( ply:GetPos(), GetConVar( "gmod_functional_rupees_cap" ):GetInt() )
+		end
 	end
 end )
 
