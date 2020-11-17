@@ -68,7 +68,7 @@ if SERVER then
 				if ( self.RupeeValue >= 0 ) then
 					if ( cap == 0 ) then
 						ent:SetHealth( ent:Health() + self.RupeeValue )
-					else
+					elseif ( cap >= ent:Health() ) then
 						ent:SetHealth( math.min( ent:Health() + self.RupeeValue, cap ) )
 					end
 				else
