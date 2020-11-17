@@ -22,50 +22,28 @@ function SpawnRupees( pos, value )
 	
 	value = math.floor(value * valuemul)
 	
-	gre = (((value % 300) % 100) % 20) % 5
-	blu = ((((value - gre) % 300) % 100) % 20) / 5
-	red = (((value - (blu * 5) - gre) % 300) % 100) / 20
-	sil = ((value - (red * 20) - (blu * 5) - gre) % 300) / 100
-	gol = (value - (sil * 100) - (red * 20) - (blu * 5) - gre) / 300
+	rupeeNames = {"gold_rupee", "orange_rupee", "silver_rupee", "purple_rupee", "red_rupee", "blue_rupee", "green_rupee"}
+	rupeeValues = {300, 200, 100, 50, 20, 5, 1}
 	
-	for i=1,gre do
-		SpawnSingleRupee( 1, pos )
+	totalValue = 0
+	
+	for i, v in ipairs( rupeeValues ) do
+		print(value)
+		r = math.floor((value - totalValue) / v)
+		totalValue = totalValue + (v * r)
+		print(r, v, totalValue)
+		for j=1,r do
+			SpawnSingleRupee( rupeeNames[i], pos )
+		end
 	end
-	for i=1,blu do
-		SpawnSingleRupee( 2, pos )
-	end
-	for i=1,red do
-		SpawnSingleRupee( 3, pos )
-	end
-	for i=1,sil do
-		SpawnSingleRupee( 4, pos )
-	end
-	for i=1,gol do
-		SpawnSingleRupee( 5, pos )
-	end
+	
 end
 
 function SpawnSingleRupee( rupeetype, pos )
 	pos.x = pos.x + math.random( -20, 20)
 	pos.y = pos.y + math.random( -20, 20)
 	
-	typestring = ""
-	
-	if rupeetype == 1 then
-		typestring = "green_rupee"
-	elseif rupeetype == 2 then
-		typestring = "blue_rupee"
-	elseif rupeetype == 3 then
-		typestring = "red_rupee"
-	elseif rupeetype == 4 then
-		typestring = "silver_rupee"
-	elseif rupeetype == 5 then
-		typestring = "gold_rupee"
-	else
-		return
-	end
-	
-	local rupee = ents.Create( typestring )
+	local rupee = ents.Create( rupeetype )
 	
 	if ( IsValid( rupee ) ) then
 		rupee:SetPos( pos )

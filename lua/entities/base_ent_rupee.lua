@@ -60,15 +60,19 @@ if SERVER then
 			
 			if ( GetConVar( "gmod_functional_rupees_armor" ):GetBool() ) then
 				if ( cap == 0 ) then
-					ent:SetArmor( ent:Armor() + self.RupeeValue )
+					ent:SetArmor( math.max( ent:Armor() + self.RupeeValue, 0 ) )
 				else
-					ent:SetArmor( math.min( ent:Armor() + self.RupeeValue, cap ) )
+					ent:SetArmor( math.Clamp( ent:Armor() + self.RupeeValue, 0, cap ) )
 				end
 			else
-				if ( cap == 0 ) then
-					ent:SetHealth( ent:Health() + self.RupeeValue )
+				if ( self.RupeeValue >= 0 ) then
+					if ( cap == 0 ) then
+						ent:SetHealth( ent:Health() + self.RupeeValue )
+					else
+						ent:SetHealth( math.min( ent:Health() + self.RupeeValue, cap ) )
+					end
 				else
-					ent:SetHealth( math.min( ent:Health() + self.RupeeValue, cap ) )
+					ent:TakeDamage(-self.RupeeValue, ent, nil)
 				end
 			end
 			
