@@ -5,12 +5,12 @@
 
 # Functional Rupees
 
-These are 5 fully functional and collectable rupees from The Legend of Zelda.
+These are 8 fully functional and collectable rupees from The Legend of Zelda.
 
-When you touch them, they'll give you the corresponding amount of rupees they would give you in game as health (1 for green, 5 for blue, 20 for red, 100 for silver and 300 for gold).
+When you touch them, they'll give you the corresponding amount of rupees they would give you in game as health (-10 for rupoor, 1 for green, 5 for blue, 20 for red, 50 for purple, 100 for silver, 200 for orange and 300 for gold).
 
 Whenever a player or NPC dies, it can drop rupees, depending on it's own maximal health. These dropped rupees will also despawn after some time, with a neat animation.
-Rupees can also give armor instead of health.
+Rupees can also give armor instead of health, amount which can be capped.
 You can configure all these settings under the "Options" tab in the upper-right corner of the spawnmenu, under "Stuff", "Functional Rupees".
 
 They come with pick-up and drop sound.
