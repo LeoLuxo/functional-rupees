@@ -9,6 +9,8 @@ hook.Add( "DoPlayerDeath", "FunctionalRupeesPlayerDeath", function( ply, attacke
 	if ( GetConVar( "gmod_functional_rupees_spawn_player" ):GetBool() ) then
 		if ( GetConVar( "gmod_functional_rupees_cap" ):GetInt() == 0 or !ply:IsPlayer() ) then
 			SpawnRupees( ply:GetPos(), ply:GetMaxHealth() )
+		elseif ( GetConVar( "gmod_functional_rupees_cap" ):GetInt() <= ply:GetMaxHealth() ) then
+			SpawnRupees( ply:GetPos(), GetConVar( "gmod_functional_rupees_cap" ):GetInt() )
 		else
 			SpawnRupees( ply:GetPos(), GetConVar( "gmod_functional_rupees_cap" ):GetInt() - ply:GetMaxHealth() )
 		end
