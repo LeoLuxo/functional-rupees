@@ -30,10 +30,8 @@ function SpawnRupees( pos, value )
 	totalValue = 0
 	
 	for i, v in ipairs( rupeeValues ) do
-		print(value)
 		r = math.floor((value - totalValue) / v)
 		totalValue = totalValue + (v * r)
-		print(r, v, totalValue)
 		for j=1,r do
 			SpawnSingleRupee( rupeeNames[i], pos )
 		end
