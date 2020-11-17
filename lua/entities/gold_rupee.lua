@@ -18,4 +18,4 @@ AddCSLuaFile()
 
 ENT.RupeeModel		= "models/gold_rupee/gold_rupee.mdl"
 ENT.RupeeValue		= 300
-ENT.RupeeSound		= "rupee3.wav"
+ENT.RupeeSound		= "rupee4.wav"

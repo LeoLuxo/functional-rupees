@@ -18,4 +18,4 @@ AddCSLuaFile()
 
 ENT.RupeeModel		= "models/black_rupee/black_rupee.mdl"
 ENT.RupeeValue		= -10
-ENT.RupeeSound		= "rupee1.wav"
+ENT.RupeeSound		= "error.wav"
